@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Card Game - Level 1</title>
+    <title>Memory Card Game - Level 3</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,17 +20,17 @@
 
         .game-board {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);  /* Update to 2 cards per row */
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
             max-width: 400px;
             margin: 20px auto;
         }
 
         .card {
-            width: 150px;
-            height: 150px;
+            width: 80px;
+            height: 80px;
             background-color: #ccc;
-            border-radius: 10px;
+            border-radius: 50%;
             position: relative;
             perspective: 1000px;
             cursor: pointer;
@@ -51,7 +51,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 10px;
+            border-radius: 50%;
         }
 
         .card .front {
@@ -68,17 +68,47 @@
             font-size: 18px;
             font-weight: bold;
         }
+
+        #moveCount {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        /* Style for Back to Home button */
+        .back-button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #2980b9;
+        }
     </style>
 </head>
 <body>
-    <h1>Memory Card Game - Level 1</h1>
+    <h1>Memory Card Game - Level 3</h1>
     <div class="game-board" id="gameBoard"></div>
     <p id="result"></p>
 
+    <!-- Display Move Count -->
+    <p id="moveCount">Moves: 0</p>
+
+    <!-- Back to Home Button -->
+    <button class="back-button" onclick="goHome()">Back to Home</button>
+
     <script>
+        // Maximum number of moves allowed
+        const maxMoves = 5;
+
         // Images for this level
         const levelImages = [
-            "https://i.postimg.cc/hjBxpcr1/IMG-20241202-WA0012.jpg",
+        "https://i.postimg.cc/hjBxpcr1/IMG-20241202-WA0012.jpg",
             "https://i.postimg.cc/hjBxpcr1/IMG-20241202-WA0012.jpg",
             "https://i.postimg.cc/qMbs4fJp/IMG-20241202-WA0010.jpg",
             "https://i.postimg.cc/qMbs4fJp/IMG-20241202-WA0010.jpg",
@@ -97,7 +127,7 @@
         gameBoard.innerHTML = cards.map(card => `
             <div class="card" data-card="${card}">
                 <div class="front">
-                    <img src="${card}" alt="Card" style="width: 100%; height: 100%; border-radius: 10px;">
+                    <img src="${card}" alt="Card" style="width: 100%; height: 100%; border-radius: 50%;">
                 </div>
                 <div class="back"></div>
             </div>
@@ -108,9 +138,15 @@
         let firstCard, secondCard;
         let lockBoard = false;
         let matches = 0;
+        let moves = 0;  // Initialize move counter
+
+        // Function to update move count
+        function updateMoveCount() {
+            document.getElementById('moveCount').textContent = `Moves: ${moves}`;
+        }
 
         function flipCard() {
-            if (lockBoard) return;
+            if (lockBoard || moves >= maxMoves) return;  // Stop game after maxMoves
             if (this === firstCard) return;
 
             this.classList.add('flipped');
@@ -126,6 +162,17 @@
             secondCard = this;
 
             checkForMatch();
+
+            // Increment move counter after two cards are flipped
+            moves++;
+            updateMoveCount();
+
+            // Check if the game is over after max moves
+            if (moves >= maxMoves) {
+                setTimeout(() => {
+                    document.getElementById('result').textContent = 'Game Over! You have reached the maximum number of moves.';
+                }, 500); // Delay to allow the last move to be shown
+            }
         }
 
         function checkForMatch() {
@@ -168,6 +215,11 @@
         document.querySelectorAll('.card').forEach(card => {
             card.addEventListener('click', flipCard);
         });
+
+        // Function to go back to home page
+        function goHome() {
+            window.location.href = "index.html"; // Change this to your home page URL
+        }
     </script>
 </body>
 </html>
