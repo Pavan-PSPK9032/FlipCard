@@ -20,15 +20,15 @@
 
         .game-board {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);  /* Update to 2 cards per row */
+            grid-template-columns: repeat(4, 1fr);  /* Update to 2 cards per row */
             gap: 10px;
             max-width: 400px;
             margin: 20px auto;
         }
 
         .card {
-            width: 150px;
-            height: 150px;
+            width: 80px;
+            height: 80px;
             background-color: #ccc;
             border-radius: 10px;
             position: relative;
@@ -78,10 +78,24 @@
     <script>
         // Images for this level
         const levelImages = [
-            "https://i.postimg.cc/hjBxpcr1/IMG-20241202-WA0012.jpg",
+           'https://i.postimg.cc/6QmYS7bX/d7ccd6c5e5a2e3434e72d93a38b9772d.jpg', 'https://i.postimg.cc/6QmYS7bX/d7ccd6c5e5a2e3434e72d93a38b9772d.jpg', 
+                'https://i.postimg.cc/280vTsKp/dark-anime-character-wallpaper-24.webp', 'https://i.postimg.cc/280vTsKp/dark-anime-character-wallpaper-24.webp', 
+                'https://i.postimg.cc/QxFxGvMZ/images-1.jpg', 'https://i.postimg.cc/QxFxGvMZ/images-1.jpg', 
+                'https://i.postimg.cc/g2Dhf7sp/anime-girl-pfp-2-by-kenkanekiart-dfbouue-pre.jpg', 'https://i.postimg.cc/g2Dhf7sp/anime-girl-pfp-2-by-kenkanekiart-dfbouue-pre.jpg', 
+                'https://i.postimg.cc/WzLtDm8S/images-2.jpg', 'https://i.postimg.cc/WzLtDm8S/images-2.jpg', 
+                'https://i.postimg.cc/4ygN4f4S/images-3.jpg', 'https://i.postimg.cc/4ygN4f4S/images-3.jpg',
+                "https://i.postimg.cc/hjBxpcr1/IMG-20241202-WA0012.jpg",
             "https://i.postimg.cc/hjBxpcr1/IMG-20241202-WA0012.jpg",
             "https://i.postimg.cc/qMbs4fJp/IMG-20241202-WA0010.jpg",
-            "https://i.postimg.cc/qMbs4fJp/IMG-20241202-WA0010.jpg"
+            "https://i.postimg.cc/qMbs4fJp/IMG-20241202-WA0010.jpg",
+            "https://i.postimg.cc/G3jPg868/IMG-20241202-WA0006.jpg",
+            "https://i.postimg.cc/G3jPg868/IMG-20241202-WA0006.jpg",
+            "https://i.postimg.cc/vBtnKk2F/IMG-20241202-WA0013.jpg",
+            "https://i.postimg.cc/vBtnKk2F/IMG-20241202-WA0013.jpg",
+            "https://i.postimg.cc/qvW2686Y/IMG-20241202-WA0007.jpg",
+            "https://i.postimg.cc/qvW2686Y/IMG-20241202-WA0007.jpg",
+            "https://i.postimg.cc/Zq3p8Crq/IMG-20241202-WA0011.jpg",
+            "https://i.postimg.cc/Zq3p8Crq/IMG-20241202-WA0011.jpg"
         ];
 
         // Shuffle cards
