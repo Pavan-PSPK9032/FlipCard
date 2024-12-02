@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Card Game - Levels</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #04680a;
+            color: #ed5e5e;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .level-box {
+            background-color: #3498db;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+            transition: transform 0.2s;
+        }
+
+        .level-box:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>Select a Level</h1>
+    <div class="levels-grid">
+        <!-- Level Buttons -->
+        <div class="level-box" onclick="openLevel(1)">Level 1</div>
+        <div class="level-box" onclick="openLevel(2)">Level 2</div>
+        <div class="level-box" onclick="openLevel(3)">Level 3</div>
+        <div class="level-box" onclick="openLevel(4)">Level 4</div>
+        <div class="level-box" onclick="openLevel(5)">Level 5</div>
+        <div class="level-box" onclick="openLevel(6)">Level 6</div>
+        <div class="level-box" onclick="openLevel(7)">Level 7</div>
+        <div class="level-box" onclick="openLevel(8)">Level 8</div>
+        <div class="level-box" onclick="openLevel(9)">Level 9</div>
+        <div class="level-box" onclick="openLevel(10)">Level 10</div>
+    </div>
+
+    <script>
+        // Function to navigate to the selected level
+        function openLevel(level) {
+            switch (level) {
+                case 1:
+                    window.location.href = 'level1.html?level=1';
+                    break;
+                case 2:
+                    window.location.href = 'level2.html?level=2';
+                    break;
+                case 3:
+                    window.location.href = 'level3.html?level=3';
+                    break;
+                case 4:
+                    window.location.href = 'level4.html?level=4';
+                    break;
+                case 5:
+                    window.location.href = 'level5.html?level=5';
+                    break;
+                case 6:
+                    window.location.href = 'level6.html?level=6';
+                    break;
+                case 7:
+                    window.location.href = 'level7.html?level=7';
+                    break;
+                case 8:
+                    window.location.href = 'level8.html?level=8';
+                    break;
+                case 9:
+                    window.location.href = 'level9.html?level=9';
+                    break;
+                case 10:
+                    window.location.href = 'level10.html?level=10';
+                    break;
+                default:
+                    alert('Invalid level selected!');
+            }
+        }
+    </script>
+</body>
+</html>
